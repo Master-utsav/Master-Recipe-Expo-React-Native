@@ -53,6 +53,10 @@ const HomeScreen: React.FC = () => {
         <View style={styles.testimonialSection}>
           <Text style={styles.testimonialTitle}>What Our Users Say</Text>
           <Text style={styles.testimonialText}>
+            "This was my first react-native app build on expo. I am master_utsav web1 + web2 + web3 developer and a learner"
+          </Text>
+          <Text style={styles.testimonialAuthor}>- Utsav Jaiswal</Text>
+          <Text style={styles.testimonialText}>
             "This app has transformed my cooking skills! The recipes are easy to follow and taste amazing."
           </Text>
           <Text style={styles.testimonialAuthor}>- Alex R.</Text>
@@ -170,11 +174,12 @@ const styles = StyleSheet.create({
   testimonialText: {
     fontSize: 16,
     color: '#ccc',
-    marginBottom: 5,
+    marginBottom: 2,
   },
   testimonialAuthor: {
     fontSize: 16,
     fontWeight: 'bold',
+    marginBottom: 10,
     color: '#fff',
   },
 });

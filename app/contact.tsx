@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, SafeAreaView, TextInput, TouchableOpacity, Alert } from 'react-native';
+import { View, Text, StyleSheet, SafeAreaView, TextInput, TouchableOpacity, Alert, Image } from 'react-native';
+import { Linking } from 'react-native'; // For handling link opening
 
 const ContactScreen: React.FC = () => {
   const [name, setName] = useState('');
@@ -17,6 +18,10 @@ const ContactScreen: React.FC = () => {
     setName('');
     setEmail('');
     setMessage('');
+  };
+
+  const openLink = (url: string) => {
+    Linking.openURL(url);
   };
 
   return (
@@ -54,6 +59,18 @@ const ContactScreen: React.FC = () => {
         <TouchableOpacity style={styles.button} onPress={handleSubmit}>
           <Text style={styles.buttonText}>Send Message</Text>
         </TouchableOpacity>
+
+        <View style={styles.socialContainer}>
+          <TouchableOpacity onPress={() => openLink('https://www.linkedin.com/in/master-utsav')}>
+            <Image source={require('@/assets/icons/linkedin.png')} style={styles.icon} />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => openLink('https://github.com/Master-utsav/Master-Recipe-Expo-React-Native')}>
+            <Image source={require('@/assets/icons/github.png')} style={styles.icon} />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => openLink('https://instagram.com/master_utsav')}>
+            <Image source={require('@/assets/icons/instagram.png')} style={styles.icon} />
+          </TouchableOpacity>
+        </View>
       </View>
     </SafeAreaView>
   );
@@ -103,6 +120,16 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 18,
     fontFamily: 'outfit-medium',
+  },
+  socialContainer: {
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+    justifyContent: 'space-around',
+    marginTop: 50,
+  },
+  icon: {
+    width: 40,
+    height: 40,
   },
 });
 
