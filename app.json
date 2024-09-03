@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "expo-react-native-project",
-    "slug": "expo-react-native-project",
+    "name": "Master's Recipe",
+    "slug": "masters-recipe",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -38,8 +38,9 @@
         "origin": false
       },
       "eas": {
-        "projectId": "64cc2629-7900-4f62-997f-84b58cbca93a"
+        "projectId": "a584ef7a-a195-49fc-ad03-34e4bb2ffd58"
       }
-    }
+    },
+    "owner": "master_utsav"
   }
 }
