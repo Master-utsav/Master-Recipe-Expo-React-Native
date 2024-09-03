@@ -1,7 +1,8 @@
 {
-  "name": "expo-react-native-project",
+  "name": "masters-recipe",
   "main": "expo-router/entry",
   "version": "1.0.0",
+  "description": "An android app where you can find recipe of your favourite dishes",
   "scripts": {
     "start": "expo start",
     "reset-project": "node ./scripts/reset-project.js",
