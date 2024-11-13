@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, SafeAreaView, Image, ScrollView, TouchableOpacity } from 'react-native';
-import { router } from 'expo-router';
+import { Href, router } from 'expo-router';
 import { indianDishes } from '@/assets/data/recipes';
 
 const MenuScreen: React.FC = () => {
@@ -14,7 +14,7 @@ const MenuScreen: React.FC = () => {
             <Image source={dish.imageUrl} style={styles.blurredImage} />
             <Text style={styles.title}>{dish.title}</Text>
             <Text style={styles.description}>{dish.description}</Text>
-            <TouchableOpacity style={styles.button} onPress={() => router.push(`${dish.recipeLink}`)}>
+            <TouchableOpacity style={styles.button} onPress={() => router.push(dish.recipeLink as Href<string>)}>
               <Text style={styles.buttonText} >View Recipe</Text>
             </TouchableOpacity>
           </View>
@@ -27,6 +27,8 @@ const MenuScreen: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingBottom: 40,
+    paddingTop: 12,
     backgroundColor: '#1a1a1a',
   },
   header: {

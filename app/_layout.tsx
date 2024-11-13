@@ -4,15 +4,11 @@ import { Asset } from 'expo-asset';
 import * as SplashScreen from 'expo-splash-screen';
 import { useFonts } from 'expo-font';
 import Navbar from '@/components/Navbar';
-import { Stack } from 'expo-router';
+import { Stack, useSegments } from 'expo-router';
+import { AuthProvider, useAuth } from '@/context/AuthContext'; // Import AuthProvider
 
 export default function App() {
   const [isReady, setIsReady] = useState(false);
-
-  // Prevent the splash screen from auto-hiding
-  useEffect(() => {
-    SplashScreen.preventAutoHideAsync();
-  }, []);
 
   const [fontsLoaded] = useFonts({
     'outfit-regular': require('@/assets/fonts/Outfit-Regular.ttf'),
@@ -20,6 +16,12 @@ export default function App() {
     'outfit-bold': require('@/assets/fonts/Outfit-Bold.ttf'),
   });
 
+  // Prevent the splash screen from auto-hiding
+  useEffect(() => {
+    SplashScreen.preventAutoHideAsync();
+  }, []);
+  
+  
   // Function to preload assets and handle splash screen
   async function preloadAssets() {
     const imageAssets = [
@@ -57,19 +59,24 @@ export default function App() {
   }
 
   return (
-    <SafeAreaView style={styles.container}>
-      <Navbar />
-      <Stack>
-        <Stack.Screen name="index" options={{ headerShown: false }} />
-        <Stack.Screen name="menu" options={{ headerShown: false }} />
-        <Stack.Screen name="contact" options={{ headerShown: false }} />
-      </Stack>
-    </SafeAreaView>
+    <AuthProvider>
+      <SafeAreaView style={styles.container}>
+        <Stack>
+          <Stack.Screen name="index" options={{ headerShown: false }} />
+          <Stack.Screen name="menu" options={{ headerShown: false }} />
+          <Stack.Screen name="contact" options={{ headerShown: false }} />
+        </Stack>
+        <Navbar />
+      </SafeAreaView>
+    </AuthProvider>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    paddingTop: 40,
+    paddingBottom: 20,
+    backgroundColor: '#1a1a1a',
     flex: 1,
   },
 });

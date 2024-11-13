@@ -78,6 +78,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#1a1a1a', // Dark theme background
+    paddingBottom: 40,
+    paddingTop: 12,
   },
   scrollContainer: {
     flexGrow: 1,

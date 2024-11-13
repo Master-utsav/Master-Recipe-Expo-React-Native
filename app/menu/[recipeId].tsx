@@ -69,6 +69,8 @@ const RecipeDetail: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingBottom: 40,
+    paddingTop: 12,
     backgroundColor: '#1a1a1a', // Dark theme background
   },
   content: {
